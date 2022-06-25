@@ -57,3 +57,15 @@ describe("整数数列 A が二つの時", () => {
     expect(sugoroku.getRemovedNumberCount()).toBe(2);
   });
 });
+
+describe("整数数列 Aがn数の時", () => {
+  test("Pが8になる", () => {
+    const sugoroku = new Sugoroku();
+    const An = [2, 2, 4, 1, 1, 1, 4, 2, 2, 1];
+
+    An.forEach((value) => {
+      sugoroku.troutCountUpOrRemove(value);
+    });
+    expect(sugoroku.getRemovedNumberCount()).toBe(8);
+  });
+});
