@@ -4,14 +4,21 @@ export class Sugoroku {
   constructor() {
     this.troutArray = [];
   }
-  troutCountUpOrRemove(a: number): number[] {
+  troutCountUpOrRemove(a: number) {
     if (a < 4) {
       this.troutArray.push(a);
     }
+
+    if (a >= 4) {
+      this.removedNumberCount = this.removedNumberCount + 1;
+    }
+  }
+
+  getTroutArray() {
     return this.troutArray;
   }
 
   getRemovedNumberCount() {
-    return this.removedNumberCount + 1;
+    return this.removedNumberCount;
   }
 }
