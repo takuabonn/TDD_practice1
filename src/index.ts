@@ -9,6 +9,14 @@ export class Sugoroku {
       this.troutArray = [...this.troutArray].map((value, index) => {
         return value + a;
       });
+
+      this.troutArray = [...this.troutArray].filter((value, index) => {
+        if (value >= 4) {
+          this.removedNumberCount = this.removedNumberCount + 1;
+        }
+        return value < 4;
+      });
+
       this.troutArray.push(a);
     }
 

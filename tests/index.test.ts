@@ -30,4 +30,12 @@ describe("整数数列 A が二つの時", () => {
 
     expect(sugoroku.getTroutArray()[0]).toBe(3);
   });
+
+  test("A1 及び A2 に１番を適用 A1が4以上になる時配列から除外", () => {
+    const sugoroku = new Sugoroku();
+    sugoroku.troutCountUpOrRemove(1);
+    sugoroku.troutCountUpOrRemove(3);
+
+    expect(sugoroku.getRemovedNumberCount()).toBe(1);
+  });
 });
