@@ -1,4 +1,4 @@
-export class Sugoroku {
+export class Batters {
   private troutArray: number[];
   private removedNumberCount: number = 0;
   constructor() {
