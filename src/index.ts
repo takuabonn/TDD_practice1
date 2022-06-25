@@ -6,6 +6,9 @@ export class Sugoroku {
   }
   troutCountUpOrRemove(a: number) {
     if (a < 4) {
+      this.troutArray = [...this.troutArray].map((value, index) => {
+        return value + a;
+      });
       this.troutArray.push(a);
     }
 
