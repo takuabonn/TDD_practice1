@@ -15,7 +15,8 @@ describe("整数数列 A がひとつの時", () => {
 });
 
 describe("整数数列 A が二つの時", () => {
-  test("A1が4以下かつA2が4以下の時 A1,A2を配列にセット", () => {
+  // A1が4以下かつA2が4以下の時
+  test("A1,A2を配列にセット", () => {
     const sugoroku = new Sugoroku();
     sugoroku.troutCountUpOrRemove(1);
     sugoroku.troutCountUpOrRemove(2);
@@ -31,11 +32,28 @@ describe("整数数列 A が二つの時", () => {
     expect(sugoroku.getTroutArray()[0]).toBe(3);
   });
 
-  test("A1 及び A2 に１番を適用 A1が4以上になる時配列から除外", () => {
+  test("プラスしてA1が4以上になる時配列から除外", () => {
     const sugoroku = new Sugoroku();
     sugoroku.troutCountUpOrRemove(1);
     sugoroku.troutCountUpOrRemove(3);
 
     expect(sugoroku.getRemovedNumberCount()).toBe(1);
+  });
+
+  // A1が4以下かつA2が4以上の時
+  test("A2を配列にセットしないかつA1を配列から除外", () => {
+    const sugoroku = new Sugoroku();
+    sugoroku.troutCountUpOrRemove(1);
+    sugoroku.troutCountUpOrRemove(4);
+
+    expect(sugoroku.getTroutArray().length).toBe(0);
+  });
+
+  test("P = P + 2", () => {
+    const sugoroku = new Sugoroku();
+    sugoroku.troutCountUpOrRemove(1);
+    sugoroku.troutCountUpOrRemove(4);
+
+    expect(sugoroku.getRemovedNumberCount()).toBe(2);
   });
 });

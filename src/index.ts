@@ -5,23 +5,30 @@ export class Sugoroku {
     this.troutArray = [];
   }
   troutCountUpOrRemove(a: number) {
-    if (a < 4) {
-      const newArray: number[] = [];
-      this.troutArray.forEach((value, index) => {
-        const newValue = value + a;
-        if (newValue < 4) {
-          newArray.push(newValue);
-          return;
-        }
-        this.removedNumberCount = this.removedNumberCount + 1;
-      });
-      this.troutArray = newArray;
-      this.troutArray.push(a);
-    }
+    this.troutArray.push(a);
+    const newArray: number[] = [];
+    this.troutArray.forEach((value, index) => {
+      let newValue = value;
+      if (this.troutArray.length - 1 !== index) {
+        newValue = newValue + a;
+      }
 
-    if (a >= 4) {
-      this.removedNumberCount = this.removedNumberCount + 1;
+      if (newValue < 4) {
+        newArray.push(newValue);
+        return;
+      }
+      if (newValue >= 4) {
+        this.removedNumberCount = this.removedNumberCount + 1;
+      }
+    });
+    this.troutArray = newArray;
+  }
+
+  private isLimit(num: number) {
+    if (num < 4) {
+      return false;
     }
+    return true;
   }
 
   getTroutArray() {
