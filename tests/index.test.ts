@@ -5,4 +5,10 @@ describe("双六ゲームテスト", () => {
     const result = sugoroku.troutCountUpOrRemove(1);
     expect(result[0]).toBe(1);
   });
+  test("整数数列が一つの時&4以上の時に配列に値を追加しない&Pに1追加", () => {
+    const sugoroku = new Sugoroku();
+    const result = sugoroku.troutCountUpOrRemove(4);
+    expect(result.length).toBe(0);
+    expect(sugoroku.getRemovedNumberCount()).toBe(1);
+  });
 });
